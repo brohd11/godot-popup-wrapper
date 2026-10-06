@@ -1,7 +1,7 @@
-export_root: "res://addons/addon_lib/popup_wrapper/_export_ignore/exports"
-plugin_folder: "PopupWrapper{{version=res://addons/addon_lib/popup_wrapper}}"
-pre_script: "res://addons/addon_lib/popup_wrapper/_export_ignore/pre_post_export.gd"
-post_script: "res://addons/addon_lib/popup_wrapper/_export_ignore/pre_post_export.gd"
+export_root: "res://addons/_lib/popup_wrapper/_export_ignore/exports"
+plugin_folder: "PopupWrapper{{version=res://addons/_lib/popup_wrapper}}"
+pre_script: "res://addons/_lib/popup_wrapper/_export_ignore/pre_post_export.gd"
+post_script: "res://addons/_lib/popup_wrapper/_export_ignore/pre_post_export.gd"
 build_require: "@require"
 compile_require: []
 options:
@@ -34,12 +34,12 @@ options:
     parse_tres: {}
 exports:
   -
-    source: "res://addons/addon_lib/popup_wrapper"
-    export_name: "popup-wrapper{{version=res://addons/addon_lib/popup_wrapper}}"
-    export_folder: addons/addon_lib/popup_wrapper
+    source: "res://addons/_lib/popup_wrapper"
+    export_name: "popup-wrapper{{version=res://addons/_lib/popup_wrapper}}"
+    export_folder: addons/_lib/popup_wrapper
     exclude:
       directories:
-        - "res://addons/addon_lib/popup_wrapper/_export_ignore"
+        - "res://addons/_lib/popup_wrapper/_export_ignore"
       file_extensions: []
       files: []
     other_transfers: []
@@ -48,4 +48,4 @@ exports:
       parse_gd: {}
       parse_tscn: {}
       parse_tres: {}
-    remote_dir: "res://addons/addon_lib/popup_wrapper/src/remote"
+    remote_dir: "res://addons/_lib/popup_wrapper/src/remote"

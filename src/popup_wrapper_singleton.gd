@@ -1,6 +1,6 @@
 #! namespace PopupWrapper class Singleton
 class_name PopupWrapperSingleton
-extends "res://addons/addon_lib/singleton/singleton_ref_count.gd" #! ext Singletons.RefCount
+extends "res://addons/_lib/singleton/singleton_ref_count.gd" #! ext Singletons.RefCount
 
 const SELF = preload("uid://duc7u8b5sakhi") #! resolve PopupWrapper.Singleton
 const ContextPlugin = preload("uid://ctqnlen6s1jq1") #! resolve PopupWrapper.ContextPlugin
