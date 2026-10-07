@@ -1,7 +1,7 @@
 #! namespace PopupWrapper class ContextPlugin
 extends RefCounted
 
-const PopupHelper = preload("uid://ba5x2r7gyvmej") #! resolve UtilR.Nodes.Popups.PathHelper
+const PopupHelper = preload("uid://ba5x2r7gyvmej") #! resolve UtilR.Nodes.PopupMenus.PathHelper
 const USort = preload("uid://dtrbpu04wxss0") #! resolve ALibRuntime.Utils.USort
 
 class ItemParams extends PopupHelper.ParamKeys:
