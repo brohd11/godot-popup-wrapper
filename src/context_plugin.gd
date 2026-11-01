@@ -275,7 +275,8 @@ static func popup_cleanup(popup:PopupMenu):
 	if popup.is_item_separator(popup.item_count - 1):
 		popup.remove_item(popup.item_count - 1)
 
-## popup_args is what the specific context slot callback would pass, ie. script_editor for ScriptEditorCode, etc.
+## popup_args is passed to `context_menu_callable(popup_args, menu_path)` for every item. A ContextMenu
+## plugin passes its `data` Dictionary; any other value is the legacy form, ie. script_editor for ScriptEditorCode.
 static func create_items(plugin:EditorContextMenuPlugin, popup_args, menu_items:Dictionary, context_menu_callable):
 	var fs_popup#:PopupMenu
 	if "SLOT" in plugin:
@@ -325,7 +326,11 @@ static func create_items(plugin:EditorContextMenuPlugin, popup_args, menu_items:
 			icon = PopupHelper._get_icon(icon)
 		
 		var menu_name = menu_path.get_file()
-		plugin.add_context_menu_item(menu_path, context_menu_callable.bind(menu_name), icon)
+		var item_callable = context_menu_callable.bind(menu_name)
+		if popup_args is Dictionary:
+			# The engine's own argument differs by version (4.8 sends data, older a slot value); send data always.
+			item_callable = func(_engine_arg): context_menu_callable.call(popup_args, menu_name)
+		plugin.add_context_menu_item(menu_path, item_callable, icon)
 		
 		var metadata = popup_data.get(ItemParams.METADATA)
 		if metadata and fs_popup:

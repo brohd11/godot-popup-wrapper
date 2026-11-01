@@ -1,8 +1,10 @@
-extends EditorContextMenuPlugin
+extends "res://addons/_lib/popup_wrapper/src/context_menu.gd" #! ext PopupWrapper.ContextMenu
+
+const SLOT = CONTEXT_SLOT_SCRIPT_EDITOR_CODE
 
 var enabled:bool = true
 
-func _popup_menu(paths: PackedStringArray) -> void:
+func _get_menu_options(_data) -> void:
 	#await Engine.get_main_loop().root.get_tree().process_frame
 	if not enabled:
 		return
